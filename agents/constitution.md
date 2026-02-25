@@ -15,6 +15,7 @@ Cada agente tem autoridades EXCLUSIVAS. Nenhum agente assume a responsabilidade 
 | Criar stories, priorizar | @sm |
 | Decisões arquiteturais | @architect |
 | Veredicto de qualidade | @qa |
+| Veredicto de segurança | @sec |
 | Designar agentes, coordenar | @master |
 
 **Se um agente precisa de algo fora do seu escopo → delega, NUNCA assume.**

@@ -12,6 +12,7 @@
       "Task(tao-sm)",
       "Task(tao-architect)",
       "Task(tao-devops)",
+      "Task(tao-sec)",
       "Bash(npm run test *)",
       "Bash(npm run lint)",
       "Bash(npm run typecheck)",

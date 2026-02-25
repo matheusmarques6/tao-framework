@@ -35,6 +35,7 @@ Se `$ARGUMENTS` começa com `@agente`:
 | `tao-sm` | Stories, planejamento | - |
 | `tao-architect` | Arquitetura, design, diagramas | context7, exa, memory |
 | `tao-devops` | Deploy, CI/CD, Docker, PRs | github, memory |
+| `tao-sec` | Segurança, auditoria, OWASP, secrets | context7, exa, memory |
 
 ## Comandos `*`
 
@@ -48,6 +49,13 @@ Se `$ARGUMENTS` começa com `@agente`:
 | `*review [escopo]` | @architect + @qa (paralelo) |
 | `*status` | Lê stories + session-state → relatório |
 | `*retrospective` | Analisa projeto → evolui Agent DNA |
+| `*security-audit` | @sec auditoria completa (SAST + deps + RLS + secrets) |
+| `*security-scan` | @sec análise estática de código |
+| `*security-deps` | @sec scan de dependências vulneráveis |
+| `*security-rls` | @sec auditoria de Row Level Security |
+| `*security-secrets` | @sec detecção de credenciais expostas |
+| `*security-a11y` | @sec auditoria WCAG 2.1 AA |
+| `*security-predeploy` | @sec gate de segurança pré-deploy |
 
 ## Análise Completa (texto livre ou `*`)
 

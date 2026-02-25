@@ -35,6 +35,7 @@ Antes de tudo, leia e aplique: `agents/constitution.md`
 | `tao-sm` | Stories, planejamento | - |
 | `tao-architect` | Decisões arquiteturais, design | context7, exa, memory |
 | `tao-devops` | Deploy, CI/CD, git push, PRs | github, memory |
+| `tao-sec` | Segurança, auditoria, OWASP, secrets | context7, exa, memory |
 
 ---
 
