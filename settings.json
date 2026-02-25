@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Skill(tao *)",
+      "Skill(tao-loop *)",
+      "Task(tao-master)",
+      "Task(tao-dev)",
+      "Task(tao-qa)",
+      "Task(tao-sm)",
+      "Task(tao-architect)",
+      "Task(tao-devops)",
+      "Bash(npm run test *)",
+      "Bash(npm run lint)",
+      "Bash(npm run typecheck)",
+      "Bash(npm run build)",
+      "Bash(bash scripts/quality-gate.sh)",
+      "Bash(bash scripts/session-state.sh *)",
+      "Bash(bash scripts/ide-sync/sync.sh *)",
+      "Bash(bash scripts/loop/init-loop.sh *)",
+      "Bash(bash scripts/loop/stop-hook.sh)"
+    ]
+  }
+}

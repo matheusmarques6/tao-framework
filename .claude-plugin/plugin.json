@@ -1,0 +1,9 @@
+{
+  "name": "tao",
+  "description": "Tao - Intelligent Agent Orchestration Framework for Claude Code",
+  "version": "2.0.0",
+  "author": {
+    "name": "Matheus"
+  },
+  "license": "MIT"
+}

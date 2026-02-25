@@ -1,0 +1,28 @@
+{
+  "ideSync": {
+    "source": "agents/",
+    "targets": {
+      "claude-code": {
+        "enabled": true,
+        "agentsPath": ".claude/agents/",
+        "rulesPath": ".claude/rules/",
+        "format": "native",
+        "extension": ".md"
+      },
+      "cursor": {
+        "enabled": true,
+        "agentsPath": ".cursor/rules/tao/",
+        "rulesPath": ".cursor/rules/",
+        "format": "condensed",
+        "extension": ".mdc"
+      },
+      "windsurf": {
+        "enabled": true,
+        "agentsPath": ".windsurf/rules/tao/",
+        "rulesPath": ".windsurf/rules/",
+        "format": "xml-tagged",
+        "extension": ".md"
+      }
+    }
+  }
+}

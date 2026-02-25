@@ -1,0 +1,41 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'if [ -f .tao/loop-state.json ]; then echo \"[tao-loop] Tracking file change\" >&2; fi'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'if [ -f .tao/loop-state.json ]; then echo \"[tao-loop] File modified\" >&2; fi'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/loop/stop-hook.sh",
+            "timeout": 10
+          },
+          {
+            "type": "prompt",
+            "prompt": "Verify: Did the agent follow the Tao Constitution? Check: (1) Stayed within authority scope? (2) Only implemented what was asked (no invention)? (3) Reported results properly? (4) Consulted Agent DNA before starting? Return {\"ok\": true} if good, {\"ok\": false, \"reason\": \"violation\"} if not."
+          }
+        ]
+      }
+    ]
+  }
+}

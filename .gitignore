@@ -1,0 +1,17 @@
+# Credenciais e secrets
+.env
+.env.*
+!.env.example
+
+# Configuração local do Claude Code
+.claude/settings.local.json
+
+# Memória de agentes (dados do projeto, não do framework)
+.claude/agent-memory/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
