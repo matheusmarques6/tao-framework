@@ -72,8 +72,32 @@ TODA ITERAÇÃO:
 
 11. VERIFICAÇÃO QA (automática)
     → Task(tao-qa): "Inspecionar implementação de S-XXX. Verificar ACs: [lista]"
-    → Se QA reprova → Task(tao-dev) com feedback → Task(tao-qa) re-inspeção
-    → Máx 2 ciclos dev→qa
+    → QA retorna um de dois veredictos:
+
+    APROVADO:
+      → Continuar para passo 12
+
+    REPROVADO (ciclo 1):
+      → Mostrar ao usuário o feedback do QA:
+        ```
+        [Loop] QA reprovou S-XXX (ciclo 1/2)
+          Issues: [lista do QA com arquivo:linha]
+          Severidade: [BLOCK/WARN]
+          Ação: Reenviando para @dev com feedback
+        ```
+      → Task(tao-dev): "CORRIGIR: [feedback específico do QA]"
+      → @dev corrige
+      → Task(tao-qa): re-inspeção
+
+    REPROVADO (ciclo 2):
+      → Mostrar ao usuário:
+        ```
+        [Loop] QA reprovou S-XXX novamente (ciclo 2/2)
+          Issues persistentes: [lista]
+          Ação: Marcando como BLOCKED — requer intervenção manual
+        ```
+      → Marcar story status="blocked", notes="QA reprovou 2x: [razões]"
+      → Pular para próxima story
 
 12. COLETAR MÉTRICAS
     → qa_cycles: quantas idas e voltas
@@ -90,8 +114,19 @@ TODA ITERAÇÃO:
     → Cada task concluída: completed = true
 
 14. COMMIT (se settings.git_enabled=true)
-    → git add [arquivos modificados]
-    → git commit -m "[prefix]: [S-XXX] [título da story]"
+    → ANTES de commitar, SEMPRE mostrar ao usuário:
+      ```
+      [Loop] Commit pendente — S-XXX: [título]
+        Arquivos: [lista de arquivos modificados]
+        QA: aprovado (N ciclos)
+        Quality gate: passed
+        Mensagem: "[prefix]: [S-XXX] [título da story]"
+
+      Autorizar commit? (sim/não/ver diff)
+      ```
+    → Se usuário autoriza → git add + git commit
+    → Se usuário nega → continuar sem commit (story fica passed mas uncommitted)
+    → Se usuário pede diff → mostrar git diff, depois perguntar novamente
 
 15. ATUALIZAR .tao/progress.md
     → Session Log: APPEND "[Iteração N] S-XXX: Título — passed (@agente) [QA cycles: N]"
